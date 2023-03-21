@@ -1,0 +1,84 @@
+
+<?php
+session_start();
+if($_POST){
+    if(($_POST['Usuario']=="administradorHC") && ($_POST['Contraseña']=="sistemaHC")){
+
+      $_SESSION['Usuario']="ok";
+      $_SESSION['nombreUsuario'] ="HC*ADMIN";
+      header('location:inicio.php');
+      }else{
+        $mensaje="Error: El usuario o contraseña son incorrectos";
+      }
+  }
+?>
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title> ACTIVOS FIJOS</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <style>
+      body{
+        background-image:url("../img/medicina-plana-sobre-fondo-azul_23-2149341570.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+    
+       <div class="container">
+        <div class="row">
+
+          <div class="col-md-4">
+          </div>
+
+          <div class="col-md-4">
+            <br><br><br><br><br><br><br><br>
+          
+          
+          <div class="card">
+              <div class="card-header">
+              <center ><strong> INICIAR SESION </strong></center>
+
+               <div class="card-body">
+                <?php if (isset($mensaje)){?>
+                    <div class="alert alert-danger" role="alert">
+                      <?php echo $mensaje;?>
+                    </div>
+                    <?php }?>
+
+                      <form method="POST">
+
+                          <div class = "form-group">
+                          <label> Usuario </label>
+                          <input type = "text" class ="form-control" name="Usuario" id = "exampleInputEmail1" placeholder="Escribe tu usuario">
+                          <small id = "emailHelp" class="form-text text-muted">
+                          </div>
+
+                          <div class = "form-group ">
+                          <label> Contraseña:</label>
+                          <input type ="password" name="Contraseña" class="form-control" placeholder="Escribe tu contraseña">
+                          </div>
+
+                          <button type="submit" class ="btn btn-success">Entrar al administrador</button>
+                      </form>
+
+
+                  </div>
+           </div>
+
+          </div>         
+        </div>
+       </div>
+       <center><a name="volver a la pagina principal" id="volver" class="btn btn-primary" href="../index.php" role="button">volver a la pagina principal</a></center>
+
+  </body>
