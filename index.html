@@ -1,20 +1,4 @@
 
-<?php
-session_start();
-if($_POST){
-    if(($_POST['Usuario']=="administradorHC") && ($_POST['Contraseña']=="sistemaHC")){
-
-      $_SESSION['Usuario']="ok";
-      $_SESSION['nombreUsuario'] ="HC*ADMIN";
-      header('location:inicio.php');
-      }else{
-        $mensaje="Error: El usuario o contraseña son incorrectos";
-      }
-  }
-?>
-
-
-
 <!doctype html>
 <html lang="en">
   <head>
